@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :farms, only: [:index, :show, :new, :create] do
-    resources :tomatoes, only: [:new, :create]
-    resources :wheats, only: [:new, :create]
-    resources :cows, only: [:new, :create]
-    resources :chickens, only: [:new, :create]
+    post 'add_tomato', on: :member
+    post 'add_wheat', on: :member
+    post 'add_cow', on: :member
+    post 'add_chicken', on: :member
   end
-
 end

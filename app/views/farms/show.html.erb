@@ -2,16 +2,16 @@
   <h1><%= @farm.name %></h1>
   <h3>Add</h3>
   <p>Please select one to add..</p>
-  <%= link_to new_farm_tomato_path(@farm.id) do %>
+  <%= button_to add_tomato_farm_path(@farm), method: :post do %>
     <p>tomato pic</p>
   <% end %>
-  <%= link_to new_farm_wheat_path(@farm.id) do %>
+  <%= button_to add_wheat_farm_path(@farm), method: :post do %>
     <p>wheat pic</p>
   <% end %>
-  <%= link_to new_farm_cow_path(@farm.id) do %>
+  <%= button_to add_cow_farm_path(@farm), method: :post do %>
     <p>cow pic</p>
   <% end %>
-  <%= link_to new_farm_chicken_path(@farm.id) do %>
+  <%= button_to add_chicken_farm_path(@farm), method: :post do %>
     <p>chicken pic</p>
   <% end %>
   <div>
