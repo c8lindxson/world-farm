@@ -1,0 +1,40 @@
+<div class="container">
+  <h1><%= @farm.name %></h1>
+  <h3>Add</h3>
+  <p>Please select one to add..</p>
+  <%= link_to new_farm_tomato_path(@farm.id) do %>
+    <p>tomato pic</p>
+  <% end %>
+  <%= link_to new_farm_wheat_path(@farm.id) do %>
+    <p>wheat pic</p>
+  <% end %>
+  <%= link_to new_farm_cow_path(@farm.id) do %>
+    <p>cow pic</p>
+  <% end %>
+  <%= link_to new_farm_chicken_path(@farm.id) do %>
+    <p>chicken pic</p>
+  <% end %>
+  <div>
+    <h3>Owned</h3>
+    <div class="item-added">
+      <% @tomatoes.each do |tomato| %>
+        <p>tomato</p>
+      <% end %>
+    </div>
+    <div class="item-added">
+      <% @wheats.each do |wheat| %>
+        <p>wheat</p>
+      <% end %>
+    </div>
+    <div class="item-added">
+      <% @cows.each do |cow| %>
+        <p>cow</p>
+      <% end %>
+    </div>
+    <div class="item-added">
+      <% @chickens.each do |chicken| %>
+        <p>chicken</p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,10 @@ class FarmsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
+    @tomatoes = @farm.tomatoes
+    @wheats = @farm.wheats
+    @cows = @farm.cows
+    @chickens = @farm.chickens
   end
 
   def new
