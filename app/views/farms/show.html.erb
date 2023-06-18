@@ -27,32 +27,32 @@
   <div>
     <h3>Owned</h3>
     <div class="d-flex">
-      <div class="item-added">
-        <% @tomatoes.each do |tomato| %>
+      <% @tomatoes.each do |tomato| %>
+        <div class="item-added">
           <p>tomato</p>
           <button>water</button>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <% @wheats.each do |wheat| %>
         <div class="item-added">
           <p>wheat</p>
           <button>water</button>
         </div>
       <% end %>
-      <div class="item-added">
-        <% @cows.each do |cow| %>
+      <% @cows.each do |cow| %>
+        <div class="item-added">
           <p>cow</p>
           <button>feed</button>
           <button>talk</button>
-        <% end %>
-      </div>
-      <div class="item-added">
-        <% @chickens.each do |chicken| %>
+        </div>
+      <% end %>
+      <% @chickens.each do |chicken| %>
+        <div class="item-added">
           <p>chicken</p>
           <button>feed</button>
           <button>talk</button>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
