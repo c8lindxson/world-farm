@@ -11,16 +11,16 @@
     <p>Please select one to add..</p>
     <div class="d-flex">
       <%= button_to add_tomato_farm_path(@farm), method: :post do %>
-        <p>tomato pic</p>
+        <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
       <% end %>
       <%= button_to add_wheat_farm_path(@farm), method: :post do %>
-        <p>wheat pic</p>
+        <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
       <% end %>
       <%= button_to add_cow_farm_path(@farm), method: :post do %>
-        <p>cow pic</p>
+        <%= image_tag("cow.jpg", alt: "cow") %>
       <% end %>
       <%= button_to add_chicken_farm_path(@farm), method: :post do %>
-        <p>chicken pic</p>
+        <%= image_tag("chicken.jpg", alt: "chicken") %>
       <% end %>
     </div>
   </div>
@@ -30,18 +30,21 @@
       <% @tomatoes.each do |tomato| %>
         <div class="item-added">
           <p>tomato</p>
+          <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
           <button>water</button>
         </div>
       <% end %>
       <% @wheats.each do |wheat| %>
         <div class="item-added">
           <p>wheat</p>
+          <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
           <button>water</button>
         </div>
       <% end %>
       <% @cows.each do |cow| %>
         <div class="item-added">
           <p>cow</p>
+          <%= image_tag("cow.jpg", alt: "cow") %>
           <button>feed</button>
           <button>talk</button>
         </div>
@@ -49,6 +52,7 @@
       <% @chickens.each do |chicken| %>
         <div class="item-added">
           <p>chicken</p>
+          <%= image_tag("chicken.jpg", alt: "chicken") %>
           <button>feed</button>
           <button>talk</button>
         </div>
