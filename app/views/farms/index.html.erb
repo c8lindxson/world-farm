@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Our World</h1>
+  <% @farms.each do |farm| %>
+    <div class="farm-card">
+      <%= farm.name %>
+    </div>
+  <% end %>
+  <h3>Open a new farm</h3>
+  <% simple_form_for @farm do |f| %>
+    <%= f.input :name, label: 'Farm name', error: 'Unique farm name required' %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
