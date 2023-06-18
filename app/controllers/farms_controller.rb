@@ -15,7 +15,7 @@ class FarmsController < ApplicationController
   def create
     @farm = Farm.new(farm_params)
     if @farm.save
-      redirect_to farm_path(params[:id])
+      redirect_to farms_path(params[:id])
     else
       render :new, :unprocessable_entity
     end

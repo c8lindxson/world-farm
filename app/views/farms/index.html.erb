@@ -2,12 +2,14 @@
   <h1>Our World</h1>
   <% @farms.each do |farm| %>
     <div class="farm-card">
-      <%= farm.name %>
+      <%= link_to farm_path(farm) do %>
+        <%= farm.name %>
+      <% end %>
     </div>
   <% end %>
   <h3>Open a new farm</h3>
-  <% simple_form_for @farm do |f| %>
+  <%= simple_form_for @farm do |f| %>
     <%= f.input :name, label: 'Farm name', error: 'Unique farm name required' %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"button" %>
   <% end %>
 </div>
