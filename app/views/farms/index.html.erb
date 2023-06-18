@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Our World</h1>
+  <% @farms.each do |farm| %>
+    <div class="farm-card">
+      <%= link_to farm_path(farm) do %>
+        <%= farm.name %>
+      <% end %>
+      <div>
+        <p>tomato pic<%= farm.tomatoes.count %></p>
+        <p>wheat pic<%= farm.wheats.count %></p>
+        <p>cow pic<%= farm.cows.count %></p>
+        <p>chicken pic<%= farm.chickens.count %></p>
+      </div>
+    </div>
+  <% end %>
+  <h3>Open a new farm</h3>
+  <%= simple_form_for @farm do |f| %>
+    <%= f.input :name, label: 'Farm name', error: 'Unique farm name required' %>
+    <%= f.button :submit, class:"button" %>
+  <% end %>
+</div>

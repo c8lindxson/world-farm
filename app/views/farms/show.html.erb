@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="d-flex">
+    <h1><%= @farm.name %></h1>
+    <p><%= @farm.tomatoes.count %></p>
+    <p><%= @farm.wheats.count %></p>
+    <p><%= @farm.cows.count %></p>
+    <p><%= @farm.chickens.count %></p>
+  </div>
+  <div class="form">
+    <h3>Add</h3>
+    <p>Please select one to add..</p>
+    <div class="d-flex">
+      <%= button_to add_tomato_farm_path(@farm), method: :post do %>
+        <p>tomato pic</p>
+      <% end %>
+      <%= button_to add_wheat_farm_path(@farm), method: :post do %>
+        <p>wheat pic</p>
+      <% end %>
+      <%= button_to add_cow_farm_path(@farm), method: :post do %>
+        <p>cow pic</p>
+      <% end %>
+      <%= button_to add_chicken_farm_path(@farm), method: :post do %>
+        <p>chicken pic</p>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h3>Owned</h3>
+    <div class="d-flex">
+      <div class="item-added">
+        <% @tomatoes.each do |tomato| %>
+          <p>tomato</p>
+          <button>water</button>
+        <% end %>
+      </div>
+      <% @wheats.each do |wheat| %>
+        <div class="item-added">
+          <p>wheat</p>
+          <button>water</button>
+        </div>
+      <% end %>
+      <div class="item-added">
+        <% @cows.each do |cow| %>
+          <p>cow</p>
+          <button>feed</button>
+          <button>talk</button>
+        <% end %>
+      </div>
+      <div class="item-added">
+        <% @chickens.each do |chicken| %>
+          <p>chicken</p>
+          <button>feed</button>
+          <button>talk</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
