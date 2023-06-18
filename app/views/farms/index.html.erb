@@ -3,22 +3,29 @@
     <h1>Our World</h1>
     <div class="d-flex">
       <% @farms.each do |farm| %>
-        <div class="farm-card d-flex">
-          <%= link_to farm_path(farm) do %>
-            <%= farm.name %>
-          <% end %>
+        <div class="farm-cards">
+          <div>
+            <img src="assets/farm.jpg" alt="simple drawing of a red barn with blue sky, green grass, and silver silo" class="main-image">
+            <%= link_to farm_path(farm) do %>
+              <h3 class="farm-name"><%= farm.name %></h3>
+            <% end %>
+          </div>
           <div class="d-flex">
-            <div>
-              <p>tomato pic<%= farm.tomatoes.count %></p>
+            <div class="farm-details">
+              <img src="assets/tomatoPlant.jpg" alt="simple drawing of a tomato plant" class="item-image">
+              <p><%= farm.tomatoes.count %></p>
             </div>
-            <div>
-              <p>wheat pic<%= farm.wheats.count %></p>
+            <div class="farm-details">
+              <img src="assets/wheatPlant.jpg" alt="simple drawing of a wheat plant" class="item-image">
+              <p><%= farm.wheats.count %></p>
             </div>
-            <div>
-              <p>cow pic<%= farm.cows.count %></p>
+            <div class="farm-details">
+              <img src="assets/cow.jpg" alt="simple drawing of a cow" class="item-image">
+              <p><%= farm.cows.count %></p>
             </div>
-            <div>
-              <p>chicken pic<%= farm.chickens.count %></p>
+            <div class="farm-details">
+              <img src="assets/chicken.jpg" alt="simple drawing of a chicken" class="item-image">
+              <p><%= farm.chickens.count %></p>
             </div>
           </div>
         </div>

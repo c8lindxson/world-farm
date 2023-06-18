@@ -1,4 +1,4 @@
-.farm-card {
+.farm-cards {
   border: 1px solid black;
   padding: 8px;
   margin: 4px;
@@ -12,4 +12,26 @@
 
 .new-farm button {
   background-color: green;
+}
+
+.item-image {
+  max-width: 50px;
+  border-radius: 15px;
+  margin: 8px;
+}
+
+.main-image {
+  max-width: 150px;
+  border-radius: 5px;
+}
+
+.farm-details {
+  position: relative;
+}
+
+.farm-details p {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: black;
 }
