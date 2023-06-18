@@ -10,8 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_18_051926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "chickens", force: :cascade do |t|
+    t.bigint "farm_id", null: false
+    t.string "gender"
+    t.integer "egg", default: 0
+    t.integer "energy", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_chickens_on_farm_id"
+  end
+
+  create_table "cows", force: :cascade do |t|
+    t.bigint "farm_id", null: false
+    t.string "gender"
+    t.integer "milk", default: 0
+    t.integer "energy", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_cows_on_farm_id"
+  end
+
+  create_table "farms", force: :cascade do |t|
+    t.string "name"
+    t.integer "age_in_days", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tomatoes", force: :cascade do |t|
+    t.bigint "farm_id", null: false
+    t.integer "crop", default: 0
+    t.integer "water", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_tomatoes_on_farm_id"
+  end
+
+  create_table "wheats", force: :cascade do |t|
+    t.bigint "farm_id", null: false
+    t.integer "crop", default: 0
+    t.integer "water", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_wheats_on_farm_id"
+  end
+
+  add_foreign_key "chickens", "farms"
+  add_foreign_key "cows", "farms"
+  add_foreign_key "tomatoes", "farms"
+  add_foreign_key "wheats", "farms"
 end
