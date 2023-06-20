@@ -40,15 +40,21 @@
         <% @tomatoes.each do |tomato| %>
           <div class="item-added col-6 col-lg-2">
             <p>tomato</p>
+            <p>water <%= tomato.water %> </p>
             <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
-            <button>water</button>
+            <%= button_to water_tomato_farm_path(@farm), method: :post, class: "water-button" do %>
+              Water
+            <% end %>
           </div>
         <% end %>
         <% @wheats.each do |wheat| %>
           <div class="item-added col-6 col-lg-2">
             <p>wheat</p>
+            <p>water <%= wheat.water %> </p>
             <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
-            <button>water</button>
+            <%= button_to water_wheat_farm_path(@farm), method: :post, class: "water-button" do %>
+              Water
+            <% end %>
           </div>
         <% end %>
         <% @cows.each do |cow| %>
@@ -60,9 +66,12 @@
               <% else %>
                 <i class="fa-solid fa-mars"></i>
               <% end %>
+              <p>energy <%= cow.energy %> </p>
             </div>
             <%= image_tag("cow.jpg", alt: "cow") %>
-            <button>feed</button>
+            <%= button_to feed_cow_farm_farm_path(@farm, cow_id: cow.id), method: :post, class: "feed-button" do %>
+              Feed
+            <% end %>
           </div>
         <% end %>
         <% @chickens.each do |chicken| %>
@@ -74,9 +83,12 @@
               <% else %>
                 <i class="fa-solid fa-mars"></i>
               <% end %>
+              <p>energy <%= chicken.energy %> </p>
             </div>
             <%= image_tag("chicken.jpg", alt: "chicken") %>
-            <button>feed</button>
+            <%= button_to feed_chicken_farm_farm_path(@farm, chicken_id: chicken.id), method: :post, class: "feed-button" do %>
+              Feed
+            <% end %>
           </div>
         <% end %>
       </div>

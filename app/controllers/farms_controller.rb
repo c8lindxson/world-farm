@@ -69,9 +69,57 @@ class FarmsController < ApplicationController
     end
   end
 
+  def water_tomato
+    @farm = Farm.find(params[:id])
+    @tomato = Tomato.find(params[:tomato_id])
+    @tomato.water += 1
+    @tomato.save
+    if @tomato.water >= 15
+      @tomato.crop += 1
+      @tomato.water = 0
+      @tomato.save
+    end
+    redirect_to farm_path(@farm)
+  end
+
+  def water_wheat
+    @farm = Farm.find(params[:id])
+    @wheat = Wheat.find(params[:wheat_id])
+    @wheat.water += 1
+    @wheat.save
+    if @wheat.water >= 15
+      @wheat.crop += 1
+      @wheat.water = 0
+      @wheat.save
+    end
+    redirect_to farm_path(@farm)
+  end
+
+  def feed_chicken
+    @farm = Farm.find(params[:id])
+    @chicken = Chicken.find(params[:chicken_id])
+    feed_animal(@chicken, 10)
+  end
+
+  def feed_cow
+    @farm = Farm.find(params[:id])
+    @cow = Cow.find(params[:cow_id])
+    feed_animal(@cow, 15)
+  end
+
   private
 
   def farm_params
     params.require(:farm).permit(:name)
+  end
+
+  def feed_animal(animal, threshold)
+    animal.energy += 1
+    if animal.energy >= threshold
+      animal.energy = 0
+      animal.increment_resource_count
+    end
+    animal.save
+    redirect_to farm_path(@farm), notice: 'Animal fed successfully.'
   end
 end
