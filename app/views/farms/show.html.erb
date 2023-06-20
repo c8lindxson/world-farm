@@ -1,62 +1,85 @@
 <div class="container">
   <div class="d-flex">
     <h1><%= @farm.name %></h1>
+    <%= image_tag("tomato.jpg", alt: "tomato", class: "products") %>
     <p><%= @farm.tomatoes.count %></p>
+    <%= image_tag("wheat.jpg", alt: "wheat", class: "products") %>
     <p><%= @farm.wheats.count %></p>
+    <%= image_tag("milk.jpg", alt: "milk", class: "products") %>
     <p><%= @farm.cows.count %></p>
+    <%= image_tag("egg.jpg", alt: "egg", class: "products") %>
     <p><%= @farm.chickens.count %></p>
   </div>
-  <div class="form">
-    <h3>Add</h3>
-    <p>Please select one to add..</p>
-    <div class="d-flex">
-      <%= button_to add_tomato_farm_path(@farm), method: :post do %>
-        <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
-      <% end %>
-      <%= button_to add_wheat_farm_path(@farm), method: :post do %>
-        <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
-      <% end %>
-      <%= button_to add_cow_farm_path(@farm), method: :post do %>
-        <%= image_tag("cow.jpg", alt: "cow") %>
-      <% end %>
-      <%= button_to add_chicken_farm_path(@farm), method: :post do %>
-        <%= image_tag("chicken.jpg", alt: "chicken") %>
-      <% end %>
+  <div class="d-flex justify-content-between">
+    <div class="form col-12 col-lg-4">
+      <h3>Add</h3>
+      <p>Please select one to add..</p>
+      <div class="d-flex">
+        <%= button_to add_tomato_farm_path(@farm), method: :post do %>
+          <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
+        <% end %>
+        <%= button_to add_wheat_farm_path(@farm), method: :post do %>
+          <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
+        <% end %>
+        <%= button_to add_cow_farm_path(@farm), method: :post do %>
+          <%= image_tag("cow.jpg", alt: "cow") %>
+        <% end %>
+        <%= button_to add_chicken_farm_path(@farm), method: :post do %>
+          <%= image_tag("chicken.jpg", alt: "chicken") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="talk col-12 col-lg-6">
+      <h3>Talk of the Farm</h3>
     </div>
   </div>
   <div>
     <h3>Owned</h3>
-    <div class="d-flex">
-      <% @tomatoes.each do |tomato| %>
-        <div class="item-added">
-          <p>tomato</p>
-          <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
-          <button>water</button>
-        </div>
-      <% end %>
-      <% @wheats.each do |wheat| %>
-        <div class="item-added">
-          <p>wheat</p>
-          <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
-          <button>water</button>
-        </div>
-      <% end %>
-      <% @cows.each do |cow| %>
-        <div class="item-added">
-          <p>cow</p>
-          <%= image_tag("cow.jpg", alt: "cow") %>
-          <button>feed</button>
-          <button>talk</button>
-        </div>
-      <% end %>
-      <% @chickens.each do |chicken| %>
-        <div class="item-added">
-          <p>chicken</p>
-          <%= image_tag("chicken.jpg", alt: "chicken") %>
-          <button>feed</button>
-          <button>talk</button>
-        </div>
-      <% end %>
+    <div class="item-cards">
+      <div class="row">
+        <% @tomatoes.each do |tomato| %>
+          <div class="item-added col-6 col-lg-2">
+            <p>tomato</p>
+            <%= image_tag("tomatoPlant.jpg", alt: "tomato plant") %>
+            <button>water</button>
+          </div>
+        <% end %>
+        <% @wheats.each do |wheat| %>
+          <div class="item-added col-6 col-lg-2">
+            <p>wheat</p>
+            <%= image_tag("wheatPlant.jpg", alt: "wheat plant") %>
+            <button>water</button>
+          </div>
+        <% end %>
+        <% @cows.each do |cow| %>
+          <div class="item-added col-6 col-lg-2">
+            <div class="d-flex justify-content-between">
+              <p>cow</p>
+              <% if cow.gender == "female" %>
+                <i class="fa-solid fa-venus"></i>
+              <% else %>
+                <i class="fa-solid fa-mars"></i>
+              <% end %>
+            </div>
+            <%= image_tag("cow.jpg", alt: "cow") %>
+            <button>feed</button>
+          </div>
+        <% end %>
+        <% @chickens.each do |chicken| %>
+          <div class="item-added col-6 col-lg-2">
+            <div class="d-flex justify-content-between">
+              <p>chicken</p>
+              <% if chicken.gender == "female" %>
+                <i class="fa-solid fa-venus"></i>
+              <% else %>
+                <i class="fa-solid fa-mars"></i>
+              <% end %>
+            </div>
+            <%= image_tag("chicken.jpg", alt: "chicken") %>
+            <button>feed</button>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
